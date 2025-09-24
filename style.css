@@ -1,0 +1,123 @@
+body {
+      background: #1a1a2e;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Press Start 2P', cursive, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h2 {
+      color: #ffcc00;
+      text-align: center;
+      text-shadow: 3px 3px 0 #ff6b00, 5px 5px 0 #000;
+      margin-bottom: 20px;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .game-container {
+      background: #16213e;
+      border: 8px solid #0f3460;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .background {
+      table-layout: fixed;
+      border-spacing: 0;
+      border: 3px solid #0f3460;
+    }
+
+    .background td {
+      padding: 0;
+    }
+
+    .lava, .actor {
+      background: #e94560;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .wall {
+      background: #0f3460;
+      border: solid 2px #1a1a2e;
+      box-sizing: content-box;
+    }
+
+    .actor {
+      position: absolute;
+    }
+
+    .coin {
+      background: radial-gradient(circle at 30% 30%, #ffcc00, #ff6b00);
+      border-radius: 50%;
+      box-shadow: 0 0 5px #ffcc00;
+    }
+
+    .player {
+      background: #4e9f3d;
+      box-shadow: none;
+      border-radius: 3px;
+    }
+
+    .lost .player {
+      background: #e94560;
+      transform: rotate(180deg);
+    }
+
+    .won .player {
+      background: #4e9f3d;
+      box-shadow: 0 0 15px #4e9f3d;
+    }
+
+    .game {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .controls {
+      color: #fff;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .level-indicator {
+      color: #ffcc00;
+      background: #0f3460;
+      padding: 8px 15px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 14px;
+      border: 2px solid #e94560;
+    }
+
+    /* Retro scanline effect */
+    .game::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 51%
+      );
+      background-size: 100% 4px;
+      pointer-events: none;
+    }
+
+    /* Pixelated scaling */
+    .game {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
